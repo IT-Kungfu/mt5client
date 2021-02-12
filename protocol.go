@@ -18,7 +18,6 @@ const (
 	MT5ParamSeparator              = "="
 	MT5RetCode                     = "RETCODE"
 	MT5RetCodeSuccess              = "0 Done"
-	MT5BalanceTypeDealBalance      = 2
 	MT5CommandAuthStart            = "AUTH_START"
 	MT5CommandAuthAnswer           = "AUTH_ANSWER"
 	MT5CommandQuit                 = "QUIT"
@@ -48,14 +47,6 @@ const (
 	MT5CommandChartGet             = "CHART_GET"
 	MT5CommandDealerSend           = "DEALER_SEND"
 	MT5CommandDealerUpdates        = "DEALER_UPDATES"
-)
-
-var (
-	MT5ErrorAccountAlreadyExists = "3004 Account already exists"
-)
-
-const (
-	MT5UserAddMaxAttempts = 1000
 )
 
 type MT5Header struct {

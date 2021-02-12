@@ -2,7 +2,7 @@ package mt5client
 
 import (
 	"context"
-	"github.com/sirupsen/logrus"
+	"github.com/IT-Kungfu/logger"
 )
 
 type ClientControlMessage struct {
@@ -24,7 +24,7 @@ type Client struct {
 
 type Pool struct {
 	cfg        *Config
-	log        *logrus.Logger
+	log        *logger.Logger
 	clients    []*Client
 	cb         chan *ClientResponse
 	poolSize   int
@@ -36,7 +36,7 @@ func NewMT5ClientPool(ctx context.Context, poolSize int) (*Pool, error) {
 	cb := make(chan *ClientResponse, poolSize)
 	pool := &Pool{
 		cfg:      services["mt5cfg"].(*Config),
-		log:      services["log"].(*logrus.Logger),
+		log:      services["log"].(*logger.Logger),
 		clients:  make([]*Client, 0, poolSize),
 		poolSize: poolSize,
 		cb:       cb,

@@ -3,7 +3,7 @@ package mt5client
 import (
 	"context"
 	"fmt"
-	"github.com/sirupsen/logrus"
+	"github.com/IT-Kungfu/logger"
 	"net"
 	"sync"
 	"time"
@@ -11,7 +11,7 @@ import (
 
 type MT5Client struct {
 	cfg       *Config
-	log       *logrus.Logger
+	log       *logger.Logger
 	conn      *net.TCPConn
 	connMux   sync.Mutex
 	controlCh chan *ClientControlMessage
@@ -22,7 +22,7 @@ func NewMT5Client(ctx context.Context) (*MT5Client, error) {
 	services := ctx.Value("services").(map[string]interface{})
 	c := &MT5Client{
 		cfg:       services["mt5cfg"].(*Config),
-		log:       services["log"].(*logrus.Logger),
+		log:       services["log"].(*logger.Logger),
 		controlCh: services["controlCh"].(chan *ClientControlMessage),
 		clientId:  services["clientId"].(int),
 	}

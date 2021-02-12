@@ -4,11 +4,8 @@ const (
 	DealActionBuy          = 0
 	DealActionSell         = 1
 	DealActionBalance      = 2
-	DealEntryIn            = 0
-	DealEntryOut           = 1
 	TradeActionDealerFirst = 200
 	OrderFillingFillFOK    = 0
-	DealerRequestDone      = 10009
 )
 
 type ApiData struct {
